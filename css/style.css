@@ -1,19 +1,19 @@
 .orange-button {
     display: inline-block;
-    color: #FC561E;
+    color: #4c9f77;
     font-size: 1em;
     padding: 16px;
     padding: 1rem;
     margin: 0;
     height: auto;
     vertical-align: middle;
-    border-radius: 3px;
+    border-radius: 5px;
     text-decoration: none;
-    border: 0;
     outline: none;
     cursor: pointer;
-    background: #fc561e;
+    background: #4c9f77;
     border-radius: 50px;
+    border-style: solid;
     color: #fff;
     float: left;
 }
@@ -48,7 +48,7 @@
 }
 
 .progress {
-    background-color: #fc561e;
+    background-color: #ce77b2;
     height: 100%;
 }
 
@@ -65,6 +65,8 @@
 .track-title {
     margin: 0;
     color: #272727;
+    font-weight: 300;
+    letter-spacing: 0.02em;
 }
 
 .track-user {
@@ -86,12 +88,13 @@
     width: 85%;
     margin-right: 5px;
     height: 60px;
+    border-color: #7cbc48;
 }
 
 .search-button {
     font-size: 25px;
     height: 61px;
-    background-color: #FC561E;
+    background-color: #4c9f77;
     border: none;
     font-weight: normal;
     color: #fff;
@@ -106,8 +109,15 @@
 #main {
     text-align: center;
     padding: 30px;
+    background: #427dae
 }
 
 #search-results {
     margin-top: 50px;
+}
+.h1-text {
+    font-size: 28px;
+    display: block;
+    font-weight: 400;
+    margin: 13px 0px 8px 0px;
 }
