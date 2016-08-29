@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
-import ProgressSoundPlayer from './components/ProgressSoundPlayer';
-import SC from 'node-soundcloud';
-import Loading from 'react-loading';
+import React, {Component} from "react";
+import ReactDOM from "react-dom";
+import ProgressSoundPlayer from "./components/ProgressSoundPlayer";
+import SC from "node-soundcloud";
+import Loading from "react-loading";
 
 var client_id = '0334a4557074bab9323f2c0a20534030';
 
@@ -11,7 +11,7 @@ SC.init({
 });
 
 class Main extends Component {
-    constructor(props){
+    constructor(props) {
         super();
         this.state = {
             query: '',
@@ -21,16 +21,17 @@ class Main extends Component {
         };
 
     }
-    handleTextChange(event){
+
+    handleTextChange(event) {
         this.setState({
             query: event.target.value
         });
-        if(event.key === 'Enter'){
+        if (event.key === 'Enter') {
             this.search.call(this);
         }
     }
 
-    search(){
+    search() {
         this.setState({
             isLoading: true
         });
@@ -39,7 +40,7 @@ class Main extends Component {
             q: this.state.query,
             embeddable_by: 'all'
         }, (err, tracks) => {
-            if(!err){
+            if (!err) {
                 this.setState({
                     hasResults: true,
                     searchResults: tracks,
@@ -49,18 +50,19 @@ class Main extends Component {
         });
     }
 
-    render(){
+    render() {
         return (
             <div>
                 <h1>Sound Player app</h1>
                 <input type="search"
                        onKeyUp={this.handleTextChange.bind(this)}
                        className="search-field"
-                       placeholder="Enter song name or artist..." />
+                       placeholder="Enter song name or artist..."/>
                 <button className="search-button"
-                        onClick={this.search.bind(this)}>Search</button>
+                        onClick={this.search.bind(this)}>Search
+                </button>
                 <div className="center">
-                    {this.state.isLoading && <Loading type="bars" color="#FFB935" />}
+                    {this.state.isLoading && <Loading type="bars" color="#FFB935"/>}
                 </div>
                 {this.state.hasResults && !this.state.isLoading ?
                     this.renderSearchResults.call(this) :
@@ -69,13 +71,13 @@ class Main extends Component {
         );
     }
 
-    renderNoSearchResults(){
+    renderNoSearchResults() {
         return (
             <div id="no-results"></div>
         );
     }
 
-    renderSearchResults(){
+    renderSearchResults() {
         return (
             <div id="search-results">
                 {this.state.searchResults.map(this.renderPlayer.bind(this))}
@@ -83,12 +85,12 @@ class Main extends Component {
         );
     }
 
-    renderPlayer(track){
+    renderPlayer(track) {
         return (
             <ProgressSoundPlayer
                 key={track.id}
                 clientId={client_id}
-                resolveUrl={track.permalink_url} />
+                resolveUrl={track.permalink_url}/>
         );
     }
 }
